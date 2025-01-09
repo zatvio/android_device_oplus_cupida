@@ -31,8 +31,30 @@ PRODUCT_BRAND := realme
 PRODUCT_MODEL := Realme X7 Max 5G
 PRODUCT_MANUFACTURER := realme
 
+PRODUCT_SYSTEM_NAME := cupida
+PRODUCT_SYSTEM_DEVICE := cupida
+
+# RisingTechOSS Flags
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_DEFAULT_PIXEL_LAUNCHER := true
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
+TARGET_HAS_UDFPS := true
+
+# GMS
+WITH_GMS := true
+TARGET_CORE_GMS := true
+TARGET_CORE_GMS_EXTRAS := true
+
+# Maintainer
+RISING_MAINTAINER := Zatvio
+
 # Build info
 BUILD_FINGERPRINT := "realme/RMX3031/RMX3031L1:13/TP1A.220905.001/R.ead5d5-5fba:user/release-keys"
-PRODUCT_BUILD_PROP_OVERRIDES := BuildDesc=$(call normalize-path-list, "sys_mssi_64_cn_armv82-user-13-TP1A.220905.001-1677828988354-release-keys")
+PRODUCT_BUILD_PROP_OVERRIDES += \
+	BuildDesc=$(call normalize-path-list, "sys_mssi_64_cn_armv82-user-13-TP1A.220905.001-1677828988354-release-keys") \
+	DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
+	RisingChipset="MTK Dimensity 1200" \
+ 	RisingMaintainer="Zatvio"
+
 PRODUCT_PROPERTY_OVERRIDES := ro.build.fingerprint=$(BUILD_FINGERPRINT)
 PRODUCT_GMS_CLIENTID_BASE := android-realme
